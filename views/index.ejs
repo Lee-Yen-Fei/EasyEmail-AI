@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyEmail AI</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .email-content {
+            white-space: pre-wrap; /* Preserves whitespace and line breaks */
+            font-family: Arial, sans-serif;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .email-content h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .email-content p {
+            margin: 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>EasyEmail AI</h1>
+    <form action="/generate" method="POST">
+        <label for="recipientName">Recipient Name:</label>
+        <input type="text" name="recipientName" id="recipientName" required>
+        <label for="subject">Subject:</label>
+        <input type="text" name="subject" id="subject" required>
+        <label for="context">Context:</label>
+        <textarea name="keyPoints" id="context" required></textarea>
+        <label for="senderName">Your Name:</label>
+        <input type="text" name="senderName" id="senderName" required>
+        <button type="submit">Generate Email</button>
+    </form>
+    <hr>
+    <% if (generatedEmail) { %>
+        <div class="email-content">
+            <h2>Generated Email</h2>
+            <p><%= generatedEmail %></p>
+        </div>
+    <% } else { %>
+        <p>No email generated yet. Please submit the form to generate an email.</p>
+    <% } %>
+</body>
+</html>
